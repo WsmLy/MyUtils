@@ -18,7 +18,7 @@ public class DisplayUtil {
      * @return
      */
     public static int px2dp(float pxValue) {
-        final float scale = ContextUtils.getContext().getResources().getDisplayMetrics().density;
+        final float scale = getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
 
@@ -29,7 +29,7 @@ public class DisplayUtil {
      * @return
      */
     public static int dp2px(float dipValue) {
-        final float scale = ContextUtils.getContext().getResources().getDisplayMetrics().density;
+        final float scale = getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
 
@@ -40,7 +40,7 @@ public class DisplayUtil {
      * @return
      */
     public static int px2sp(float pxValue) {
-        final float fontScale = ContextUtils.getContext().getResources().getDisplayMetrics().scaledDensity;
+        final float fontScale = getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
 
@@ -51,7 +51,7 @@ public class DisplayUtil {
      * @return
      */
     public static int sp2px(float spValue) {
-        final float fontScale = ContextUtils.getContext().getResources().getDisplayMetrics().scaledDensity;
+        final float fontScale = getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 
@@ -82,10 +82,20 @@ public class DisplayUtil {
      */
     public static ScreenInfo getScreenSize() {
         DisplayMetrics dm;
-        dm = ContextUtils.getContext().getResources().getDisplayMetrics();
+        dm = getDisplayMetrics();
         int screenWidth = dm.widthPixels;
         int screenHeight = dm.heightPixels;
         return new ScreenInfo().setHeight(screenHeight).setWidth(screenWidth);
+    }
+
+
+    /**
+     * 得到屏幕的信息DisplayMetrics
+     *
+     * @return
+     */
+    public static DisplayMetrics getDisplayMetrics() {
+        return ContextUtils.getContext().getResources().getDisplayMetrics();
     }
 
     /**

@@ -12,7 +12,7 @@ import com.example.myutils.utils.ToastUtil;
 public class DisplayUtilsActivity extends BaseActivity {
     private TextView spValue, dpValue, pxValue;
     private TextView transform;
-    private TextView screenValue, statusBarValue;
+    private TextView screenSize, statusBarValue, screenValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class DisplayUtilsActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.transform:
-                if (getCurrentFocus()==spValue && !"".equals(spValue.getText().toString())) {
+                if (getCurrentFocus() == spValue && !"".equals(spValue.getText().toString())) {
                     pxValue.setText(String.valueOf(DisplayUtil.sp2px(Integer.parseInt(spValue.getText().toString()))));
                     dpValue.setText(String.valueOf(DisplayUtil.sp2dp(Integer.parseInt(spValue.getText().toString()))));
                 } else if (getCurrentFocus() == dpValue && !"".equals(dpValue.getText().toString())) {
@@ -42,8 +42,13 @@ public class DisplayUtilsActivity extends BaseActivity {
 
     @Override
     public void initDate() {
-        screenValue.setText(new StringBuilder().append("宽度：").append(DisplayUtil.getScreenSize().getWidth()).append("px  高度：").append(DisplayUtil.getScreenSize().getHeight()).append("px"));
+        screenSize.setText(new StringBuilder().append("宽度：").append(DisplayUtil.getScreenSize().getWidth()).append("px  高度：").append(DisplayUtil.getScreenSize().getHeight()).append("px"));
         statusBarValue.setText(new StringBuilder().append(DisplayUtil.getStatusBarHeight()).append("px"));
+        screenValue.setText(new StringBuilder().append("densityDpi:").append(DisplayUtil.getDisplayMetrics().densityDpi)
+                .append("\ndensity:").append(DisplayUtil.getDisplayMetrics().density)
+                .append("\nxdpi:").append(DisplayUtil.getDisplayMetrics().xdpi)
+                .append("\nydpi:").append(DisplayUtil.getDisplayMetrics().ydpi)
+                .append("\nscaleDensity:").append(DisplayUtil.getDisplayMetrics().scaledDensity));
     }
 
     @Override
@@ -54,8 +59,9 @@ public class DisplayUtilsActivity extends BaseActivity {
 
         transform = findViewById(R.id.transform);
 
-        screenValue = findViewById(R.id.screen_value);
+        screenSize = findViewById(R.id.screen_size);
         statusBarValue = findViewById(R.id.statusbar_value);
+        screenValue = findViewById(R.id.screen_value);
     }
 
     @Override
