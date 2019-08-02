@@ -6,9 +6,9 @@ import android.widget.Toast;
 /**
  * create by sam at 2019/07/31
  * descriptions: Toast相关的工具
+ * revise at 2019.08.02: 将isFastDoubleClick方法移到ClickUtils中
  */
 public class ToastUtil {
-    private static long lastClickTime;
     public static final int TYPE_NORMAL = 1;//normal default toast,you can define orther type value for custom toast
     //and change the private method to public
 
@@ -43,15 +43,5 @@ public class ToastUtil {
         if (TextUtils.isEmpty(content) || ContextUtils.getContext() == null)
             return;
         Toast.makeText(ContextUtils.getContext(), content, duration).show();
-    }
-
-    public static boolean isFastDoubleClick(long timeInternal) {
-        long time = System.currentTimeMillis();
-        long timeD = time - lastClickTime;
-        if (0 < timeD && timeD < timeInternal) {
-            return true;
-        }
-        lastClickTime = time;
-        return false;
     }
 }

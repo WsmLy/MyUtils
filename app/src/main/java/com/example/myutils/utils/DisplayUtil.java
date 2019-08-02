@@ -1,18 +1,13 @@
 package com.example.myutils.utils;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Point;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.TypedValue;
 
-import androidx.annotation.StringDef;
+import com.example.myutils.beans.ScreenInfo;
 
 /**
  * create by sam at 2019/07/31
  * descriptions: 跟尺寸相关的工具类，包括各种单位之间的转换和获取屏幕宽高、获取状态栏高度
+ * revise at 2019.08.02: 获取屏幕宽高换成返回自定义屏幕信息。
  */
 public class DisplayUtil {
 
@@ -85,12 +80,12 @@ public class DisplayUtil {
      *
      * @return
      */
-    public static Point getScreenSize() {
+    public static ScreenInfo getScreenSize() {
         DisplayMetrics dm;
         dm = ContextUtils.getContext().getResources().getDisplayMetrics();
         int screenWidth = dm.widthPixels;
         int screenHeight = dm.heightPixels;
-        return new Point(screenWidth, screenHeight);
+        return new ScreenInfo().setHeight(screenHeight).setWidth(screenWidth);
     }
 
     /**

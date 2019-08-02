@@ -1,6 +1,4 @@
-package com.example.myutils;
-
-import android.view.View;
+package com.example.myutils.interfaces;
 
 public interface ActivityInitInterface {
     void initView();

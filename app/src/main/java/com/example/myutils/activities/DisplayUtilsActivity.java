@@ -42,7 +42,7 @@ public class DisplayUtilsActivity extends BaseActivity {
 
     @Override
     public void initDate() {
-        screenValue.setText(new StringBuilder().append("宽度：").append(DisplayUtil.getScreenSize().x).append("px  高度：").append(DisplayUtil.getScreenSize().y).append("px"));
+        screenValue.setText(new StringBuilder().append("宽度：").append(DisplayUtil.getScreenSize().getWidth()).append("px  高度：").append(DisplayUtil.getScreenSize().getHeight()).append("px"));
         statusBarValue.setText(new StringBuilder().append(DisplayUtil.getStatusBarHeight()).append("px"));
     }
 
@@ -53,9 +53,13 @@ public class DisplayUtilsActivity extends BaseActivity {
         pxValue = findViewById(R.id.px_value);
 
         transform = findViewById(R.id.transform);
-        transform.setOnClickListener(this);
 
         screenValue = findViewById(R.id.screen_value);
         statusBarValue = findViewById(R.id.statusbar_value);
+    }
+
+    @Override
+    public void initOnClick() {
+        transform.setOnClickListener(this);
     }
 }

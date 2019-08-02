@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.myutils.interfaces.ActivityInitInterface;
+
 public class BaseActivity extends AppCompatActivity implements ActivityInitInterface, View.OnClickListener {
 
     @Override

@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".activities.ClickUtilsActivity"></activity>
+        <activity android:name=".BaseActivity" />
         <activity android:name=".activities.DisplayUtilsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
