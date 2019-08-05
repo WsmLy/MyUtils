@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 /**
- * create by sam at 2019/07/31
+ * create by sam at 2019-07-31
  * descriptions: Toast相关的工具
- * revise at 2019.08.02: 将isFastDoubleClick方法移到ClickUtils中
+ * revise on 2019-08-02: 将isFastDoubleClick方法移到ClickUtils中
  */
 public class ToastUtil {
     public static final int TYPE_NORMAL = 1;//normal default toast,you can define orther type value for custom toast

@@ -1,12 +1,10 @@
 package com.example.myutils.utils;
 
-import android.app.Activity;
-
 import com.example.myutils.interfaces.BeforExitToDoListener;
 
 /**
- * create by sam at 2019.08.02 11:07
- * description: 点击相关的工具类
+ * create by sam on 2019-08-02
+ * description: some utils about click
  */
 public class ClickUtils {
     private static String TAG = "ClickUtils";
