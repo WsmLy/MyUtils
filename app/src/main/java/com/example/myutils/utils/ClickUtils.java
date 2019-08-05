@@ -13,9 +13,9 @@ public class ClickUtils {
     private static int clickTimes = 1;
 
     /**
-     * 是否是快速点击
+     * is continuous click
      *
-     * @param timeInternal 多长时间内点击算是快速点击
+     * @param timeInternal define how long time click again is continuous click, its unit is ms which is 1000 * second
      * @return
      */
     public static boolean isFastDoubleClick(long timeInternal) {
@@ -33,9 +33,9 @@ public class ClickUtils {
     }
 
     /**
-     * 两次点击退出应用
-     * 将该方法写在点击事件内
-     * listener的exit方法中写出在退出时需要执行的操作
+     * exit this application after twice continuous click return key
+     * you should using this method in onClick() method
+     * if you want doing something when the application exit, you can add a listener as a parameter into the method,and put these things into the exit method of this listener
      */
     public static void doubleClickToExit() {
         doubleClickToExit(null);
