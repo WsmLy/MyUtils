@@ -14,11 +14,11 @@ public class NetUtils {
      * donnot forget add permission ACCESS_NETWORK_STATE
      */
     public boolean isNetConnected() {
-        // 创建并初始化连接对象
+        // create and init connection manager
         ConnectivityManager connMan = (ConnectivityManager) ContextUtils.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        // 判断初始化是否成功并作出相应处理
+            //Judging whether the initialization is successful and making corresponding treatment
         if (connMan != null) {
-            // 调用getActiveNetworkInfo方法创建对象,如果不为空则表明网络连通，否则没连通
+            // The getActiveNetworkInfo method is called to create an object. If it is not empty, the network is connected, otherwise it is not connected.
             NetworkInfo info = connMan.getActiveNetworkInfo();
             if (info != null) {
                 return info.isAvailable();
