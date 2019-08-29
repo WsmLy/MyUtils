@@ -18,10 +18,9 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
  */
 
 // 将汉字转换为拼音字母
-
 public class Launguage {
 	// 将汉字转换为全拼
-	public static String getPingYin(String src)
+	public static StringBuilder getPingYin(String src)
 	{
 
 		char[] t1 = null;
@@ -32,7 +31,7 @@ public class Launguage {
 		t3.setCaseType(HanyuPinyinCaseType.LOWERCASE);
 		t3.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
 		t3.setVCharType(HanyuPinyinVCharType.WITH_V);
-		String t4 = "";
+		StringBuilder t4 = new StringBuilder();
 		int t0 = t1.length;
 		try
 		{
@@ -43,9 +42,9 @@ public class Launguage {
 						"[\\u4E00-\\u9FA5]+"))
 				{
 					t2 = PinyinHelper.toHanyuPinyinStringArray(t1[i], t3);
-					t4 += t2[0];
+					t4.append(t2[0]);
 				} else
-					t4 += Character.toString(t1[i]);
+					t4.append(Character.toString(t1[i]));
 			}
 			// System.out.println(t4);
 			return t4;
@@ -57,35 +56,35 @@ public class Launguage {
 	}
 
 	// 返回中文的首字母
-	public static String getPinYinHeadChar(String str)
+	public static StringBuilder getPinYinHeadChar(String str)
 	{
 
-		String convert = "";
+		StringBuilder convert = new StringBuilder();
 		for (int j = 0; j < str.length(); j++)
 		{
 			char word = str.charAt(j);
 			String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
 			if (pinyinArray != null)
 			{
-				convert += pinyinArray[0].charAt(0);
+				convert.append(pinyinArray[0].charAt(0));
 			} else
 			{
-				convert += word;
+				convert.append(word);
 			}
 		}
 		return convert;
 	}
 
 	// 将字符串转移为ASCII码
-	public static String getCnASCII(String cnStr)
+	public static StringBuilder getCnASCII(String cnStr)
 	{
-		StringBuffer strBuf = new StringBuffer();
+		StringBuilder strBuf = new StringBuilder();
 		byte[] bGBK = cnStr.getBytes();
 		for (int i = 0; i < bGBK.length; i++)
 		{
 			strBuf.append(Integer.toHexString(bGBK[i] & 0xff));
 		}
-		return strBuf.toString();
+		return strBuf;
 	}
 
 	public static void main(String[] args)
