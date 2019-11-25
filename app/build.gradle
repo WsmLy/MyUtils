@@ -1,4 +1,6 @@
-apply plugin: 'com.android.application'//to library you should delete it
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'//to library you should delete it
 //apply plugin: 'com.android.library'//to library you should add it
 
 android {
@@ -32,4 +34,11 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'org.greenrobot:eventbus:3.0.0'
+
+    implementation files('libs/pinyin4j-2.5.0.jar')
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
