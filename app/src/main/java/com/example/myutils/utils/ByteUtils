@@ -5,6 +5,7 @@ import java.util.Locale;
 
 /**
  * create by sam at 2019/12/9
+*/
 public class ByteUtils {
 
     /**
